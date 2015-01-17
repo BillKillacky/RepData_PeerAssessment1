@@ -27,7 +27,9 @@ Report creation time: `r time`.
     setwd("C:/Users/Bill Killacky/Documents/Coursera/ReproducableResearch/RepData_PeerAssessment1/RepData_PeerAssessment1")
     w <- getwd()
     f <- 'activity.csv'
-    f2 <- paste(w, '/activity.zip',sep='')
+
+    # unzip the file to the current directory.
+    f2 <- paste(w, '/activity.zip', sep='')
     unzip(f2)
 
     library(plyr)
@@ -62,8 +64,17 @@ Report creation time: `r time`.
 ```{r meanmedian, results='asis'}
     
     # Calculate and report the mean and median total number of steps taken per day
-    xt <- xtable(s)
+    meanSteps <- mean(s$TotSteps, na.rm=TRUE)
+    medianSteps <- median(s$TotSteps, na.rm=TRUE)
+
+    vals <- data.frame(meanSteps, medianSteps)
+    colnames(vals) <- c('mean steps per day', 'median steps per day')
+
+    xt <- xtable(vals)
     print(xt, type="html")  
+
+    #xt <- xtable(s)
+    #print(xt, type="html")  
 
 ```
 
@@ -144,8 +155,8 @@ Missing Value Statistics
         }
     }
 
-head(a[a$date=='2012-10-01',])    # data snapshot Before Impute Plan
-head(m[m$date=='2012-10-01', ])   # new data snapshot After Impute Plan (Note steps NA replaced with interval mean value)
+#head(a[a$date=='2012-10-01',])    # data snapshot Before Impute Plan
+#head(m[m$date=='2012-10-01', ])   # new data snapshot After Impute Plan (Note steps NA replaced with interval mean value)
 ```
 
 * Grading: Does the report contain a histogram of the total number of steps taken each day after missing values were imputed?
@@ -161,37 +172,46 @@ head(m[m$date=='2012-10-01', ])   # new data snapshot After Impute Plan (Note st
 
     # 1.    Make a histogram of the total number of steps taken each day
     hist(sm$TotSteps, breaks=26, col='cyan', ylim=c(0,20), main='Histogram of Daily Total Steps Taken AFTER Imputing')
-    hist(s$TotSteps, breaks=26, col='gray', ylim=c(0,20), main='(Compare with histogram above)\nHistogram of Daily Total Steps Taken BEFORE Imputing')
-s[is.na(s$TotSteps),]  # Show Dates formerly without data
-sm[is.na(s$TotSteps),] # Show Dates with Imputed Data
+
+#s[is.na(s$TotSteps),]  # Show Dates formerly without data
+#sm[is.na(s$TotSteps),] # Show Dates with Imputed Data
 
 ```
 
 ####4. Impact of imputing missing data
 4a.  * Make a histogram of the total number of steps taken each day and  
-**Answer: Please refer to color histogram above ("AFTER Imputing")**  
+**Answer: Please refer to histogram above with title containing "AFTER Imputing"**  
 
 4b.  * Calculate and report the mean and median total number of steps taken per day.  
-**Answer: Please refer to table below.**  
-
-4c.  * Do these values differ from the estimates from the first part of the assignment?   
-**Answer: While the average per interval remains the same, these new values include an additional daily total steps of 10,766 each for the eight days formerly without data**  
-
-4d.  * What is the impact of imputing missing data on the estimates of the total daily number of steps?    
-**Answer: The addition of eight days of 10,766 total steps also adds 8 to the frequency in the center of the histogram**  
- 
-
 ```{r NoNAmeanmedian, results='asis'}
 
     # Report the mean and median total number of steps taken per day
-    library(xtable)
-    xt <- xtable(sm)
-    print(xt, type="html")  
+    meanSteps <- mean(sm$TotSteps, na.rm=TRUE)
+    medianSteps <- median(sm$TotSteps, na.rm=TRUE)
+
+    vals <- data.frame(meanSteps, medianSteps)
+    colnames(vals) <- c('mean steps per day', 'median steps per day')
+
+    xt <- xtable(vals)
+    print(xt, type="html") 
+
+    #xt <- xtable(sm)
+    #print(xt, type="html")  
 
 ```
 
+4c.  * Do these values differ from the estimates from the first part of the assignment?   
+**Answer:**  
+* **The mean steps per day remain the same pre and post imputation.**  
+* **The median steps per day changed only slightly from 10765 to 10766.19**  
+
+4d.  * What is the impact of imputing missing data on the estimates of the total daily number of steps?    
+**Answer: The addition of eight days of 10766.19 total steps added 8 to the frequency in the center of the histogram; and caused the median to be 10766.19 as well.**   
+
+ 
+
   
-####Updated Missing Value Statistics  
+####Updated Missing Value Statistics after imputation  
 
 
 ```{r updatedIntervalPlot}
