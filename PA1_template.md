@@ -4,7 +4,7 @@ January 18, 2014
 
 
 
-Report creation time: Fri Jan 16 2015 10:20:47 PM.
+Report creation time: Fri Jan 16 2015 10:45:58 PM.
 
 
 
@@ -44,6 +44,17 @@ Report creation time: Fri Jan 16 2015 10:20:47 PM.
                )
 ```
 
+
+* Grading: Does the submission contain a histogram of the total number of steps taken each day?  
+
+
+```r
+    # 1.    Make a histogram of the total number of steps taken each day
+    hist(s$TotSteps, breaks=26, col='cyan', ylim=c(0,20))
+```
+
+![](PA1_template_files/figure-html/hist-1.png) 
+
 ##What is mean total number of steps taken per day?
 * Grading: Are both the mean and median number of steps taken each day reported?  
 
@@ -61,7 +72,7 @@ Report creation time: Fri Jan 16 2015 10:20:47 PM.
 ```
 
 <!-- html table generated in R 3.1.2 by xtable 1.7-4 package -->
-<!-- Fri Jan 16 22:20:48 2015 -->
+<!-- Fri Jan 16 22:45:59 2015 -->
 <table border=1>
 <tr> <th>  </th> <th> mean steps per day </th> <th> median steps per day </th>  </tr>
   <tr> <td align="right"> 1 </td> <td align="right"> 10766.19 </td> <td align="right"> 10765 </td> </tr>
@@ -72,16 +83,6 @@ Report creation time: Fri Jan 16 2015 10:20:47 PM.
     #print(xt, type="html")  
 ```
 
-
-* Grading: Does the submission contain a histogram of the total number of steps taken each day?  
-
-
-```r
-    # 1.    Make a histogram of the total number of steps taken each day
-    hist(s$TotSteps, breaks=26, col='cyan', ylim=c(0,20))
-```
-
-![](PA1_template_files/figure-html/hist-1.png) 
 
 ##What is the average daily activity pattern?
 * Grading: Is there a time series plot of the average number of steps taken (averaged across all days) versus the 5 minute intervals?
@@ -97,8 +98,7 @@ Report creation time: Fri Jan 16 2015 10:20:47 PM.
   
 
 ###Most Active 5-minute interval  
-* Grading: Does the report give the 5-minute interval that, on average, contains the maximum number of steps?  
-Which 5-minute interval contains the max number of steps?  
+* Grading: Does the report give the 5-minute interval that, on average, contains the maximum number of steps?   
 
 
 ```r
@@ -108,7 +108,7 @@ Which 5-minute interval contains the max number of steps?
 ```
 
 <!-- html table generated in R 3.1.2 by xtable 1.7-4 package -->
-<!-- Fri Jan 16 22:20:48 2015 -->
+<!-- Fri Jan 16 22:45:59 2015 -->
 <table border=1>
 <tr> <th>  </th> <th> interval </th> <th> meanSteps </th>  </tr>
   <tr> <td align="right"> 104 </td> <td align="right"> 835 </td> <td align="right"> 206.17 </td> </tr>
@@ -145,7 +145,7 @@ Missing Value Statistics
 ```
 
 <!-- html table generated in R 3.1.2 by xtable 1.7-4 package -->
-<!-- Fri Jan 16 22:20:48 2015 -->
+<!-- Fri Jan 16 22:45:59 2015 -->
 <table border=1>
 <tr> <th>  </th> <th> Description </th> <th> Rows </th>  </tr>
   <tr> <td align="right"> 1 </td> <td> number of rows with steps = NA </td> <td> 2304 </td> </tr>
@@ -220,7 +220,7 @@ Missing Value Statistics
 ```
 
 <!-- html table generated in R 3.1.2 by xtable 1.7-4 package -->
-<!-- Fri Jan 16 22:20:49 2015 -->
+<!-- Fri Jan 16 22:46:00 2015 -->
 <table border=1>
 <tr> <th>  </th> <th> mean steps per day </th> <th> median steps per day </th>  </tr>
   <tr> <td align="right"> 1 </td> <td align="right"> 10766.19 </td> <td align="right"> 10766.19 </td> </tr>
@@ -280,7 +280,7 @@ Missing Value Statistics
 ```
 
 <!-- html table generated in R 3.1.2 by xtable 1.7-4 package -->
-<!-- Fri Jan 16 22:20:49 2015 -->
+<!-- Fri Jan 16 22:46:00 2015 -->
 <table border=1>
 <tr> <th>  </th> <th> Description </th> <th> Rows </th>  </tr>
   <tr> <td align="right"> 1 </td> <td> number of rows with steps = NA </td> <td> 0 </td> </tr>

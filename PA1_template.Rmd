@@ -58,6 +58,14 @@ Report creation time: `r time`.
                )
 ```
 
+
+* Grading: Does the submission contain a histogram of the total number of steps taken each day?  
+
+```{r hist}
+    # 1.    Make a histogram of the total number of steps taken each day
+    hist(s$TotSteps, breaks=26, col='cyan', ylim=c(0,20))
+```
+
 ##What is mean total number of steps taken per day?
 * Grading: Are both the mean and median number of steps taken each day reported?  
 
@@ -79,13 +87,6 @@ Report creation time: `r time`.
 ```
 
 
-* Grading: Does the submission contain a histogram of the total number of steps taken each day?  
-
-```{r hist}
-    # 1.    Make a histogram of the total number of steps taken each day
-    hist(s$TotSteps, breaks=26, col='cyan', ylim=c(0,20))
-```
-
 ##What is the average daily activity pattern?
 * Grading: Is there a time series plot of the average number of steps taken (averaged across all days) versus the 5 minute intervals?
 
@@ -97,8 +98,7 @@ Report creation time: `r time`.
   
 
 ###Most Active 5-minute interval  
-* Grading: Does the report give the 5-minute interval that, on average, contains the maximum number of steps?  
-Which 5-minute interval contains the max number of steps?  
+* Grading: Does the report give the 5-minute interval that, on average, contains the maximum number of steps?   
 
 ```{r maxint,results='asis'}
     xt <- is[is$meanSteps==max(is$meanSteps),]
